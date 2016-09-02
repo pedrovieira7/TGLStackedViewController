@@ -121,7 +121,7 @@
 
     CGSize contentSize = self.collectionView.bounds.size;
     
-    contentSize.height -= self.collectionView.contentInset.top + self.collectionView.contentInset.bottom;
+    // contentSize.height -= self.collectionView.contentInset.top + self.collectionView.contentInset.bottom;
     
     return contentSize;
 }
@@ -170,7 +170,9 @@
                     
                     count += bottomPinningCount;
                     
-                    attributes.frame = CGRectMake(itemOrigin.x, self.collectionViewContentSize.height - self.layoutMargin.bottom - count * self.bottomOverlap, itemSize.width, itemSize.height);
+//                    attributes.frame = CGRectMake(itemOrigin.x, self.collectionViewContentSize.height - self.layoutMargin.bottom - count * self.bottomOverlap, itemSize.width, itemSize.height);
+                  attributes.frame = CGRectMake(itemOrigin.x, [UIScreen mainScreen].bounds.size.height + 20, itemSize.width, itemSize.height);
+                  
                 }
 
             } else {
@@ -192,7 +194,9 @@
             
             // Exposed item
             //
-            attributes.frame = CGRectMake(itemOrigin.x, self.layoutMargin.top, itemSize.width, itemSize.height);
+//            attributes.frame = CGRectMake(itemOrigin.x, self.layoutMargin.top, itemSize.width, itemSize.height);
+          
+          attributes.frame = CGRectMake(itemOrigin.x, 20, itemSize.width, itemSize.height);
 
         } else if (self.pinningMode != TGLExposedLayoutPinningModeNone) {
 
@@ -205,11 +209,13 @@
                 
             } else {
                 
-                NSInteger count = MIN(bottomPinningCount + 1, itemCount - self.exposedItemIndex) - (item - self.exposedItemIndex);
-                
-                attributes.frame = CGRectMake(itemOrigin.x, self.collectionViewContentSize.height - self.layoutMargin.bottom - count * self.bottomOverlap, itemSize.width, itemSize.height);
+//                NSInteger count = MIN(bottomPinningCount + 1, itemCount - self.exposedItemIndex) - (item - self.exposedItemIndex);
+//                attributes.frame = CGRectMake(itemOrigin.x, self.collectionViewContentSize.height - self.layoutMargin.bottom - count * self.bottomOverlap, itemSize.width, itemSize.height);
+              
+              attributes.frame = CGRectMake(itemOrigin.x, [UIScreen mainScreen].bounds.size.height + 20, itemSize.width, itemSize.height);
+
             }
-            
+          
         } else if (item > self.exposedItemIndex + bottomOverlapCount) {
             
             // Items following overlapping

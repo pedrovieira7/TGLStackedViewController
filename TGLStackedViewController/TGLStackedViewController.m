@@ -295,6 +295,7 @@
             if (currentOffset.y >= transitionMinThreshold && currentSpeed.y >= 0.0) {
                 
                 [self.collectionView deselectItemAtIndexPath:self.exposedItemIndexPath animated:YES];
+//                [self.collectionView.delegate collectionView:self.collectionView didDeselectItemAtIndexPath:self.exposedItemIndexPath];
                 [self.collectionView finishInteractiveTransition];
 
             } else {
